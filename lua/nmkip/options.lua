@@ -51,15 +51,6 @@ opt.virtualedit = "block" -- Allow cursor to move where there is no text in visu
 opt.wildmode = "longest:full,full" -- Command-line completion mode
 opt.winminwidth = 5 -- Minimum window width
 opt.wrap = false -- Disable line wrap
-opt.fillchars = {
-  foldopen = "",
-  foldclose = "",
-  -- fold = "⸱",
-  fold = " ",
-  foldsep = " ",
-  diff = "╱",
-  eob = " ",
-}
 opt.foldlevelstart = 99 -- don't autofold
 
 if vim.fn.has("nvim-0.10") == 1 then
@@ -68,3 +59,14 @@ end
 
 -- Fix markdown indentation settings
 vim.g.markdown_recommended_style = 0
+
+vim.opt.fillchars:append({
+  vert = "|",
+  vertright = "|",
+  vertleft = "|",
+  verthoriz = "+",
+  horiz = "-",
+  horizup = "-",
+  horizdown = "-",
+  diff = "╱",
+})

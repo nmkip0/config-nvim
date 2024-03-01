@@ -3,8 +3,9 @@ local function mod(name)
 end
 
 local modules = {
-  -- mod("core.auto-commands"),
-  -- mod("core.keymaps"),
+  mod("core.highlights"),
+  mod("core.auto-commands"),
+  mod("core.keymaps"),
   mod("core.term-title"),
 
   mod("core.inter-process-yank"),
@@ -12,7 +13,6 @@ local modules = {
 
   mod("core.auto-save"),
   mod("core.buffer-switching"),
-  -- mod("core.highlights"),
   --
   -- mod("lang.authzed"),
   -- mod("lang.http"),

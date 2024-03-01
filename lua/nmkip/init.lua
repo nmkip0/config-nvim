@@ -1,8 +1,5 @@
-require("nmkip.core.lazy")
-require("nmkip.core.keymaps")
-require("nmkip.core.options")
-require("nmkip.core.autocmds")
-
+require("nmkip.lazy")
+require("nmkip.options")
 
 require("nmkip.modules").setup()
 
