@@ -6,9 +6,9 @@ local modules = {
   -- mod("core.auto-commands"),
   -- mod("core.keymaps"),
   mod("core.term-title"),
-  --
-  -- mod("core.inter-process-yank"),
-  -- mod("core.yank-to-clipboard"),
+
+  mod("core.inter-process-yank"),
+  mod("core.yank-to-clipboard"),
   --
   -- mod("core.auto-save"),
   mod("core.buffer-switching"),

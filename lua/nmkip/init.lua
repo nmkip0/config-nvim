@@ -9,5 +9,3 @@ require("nmkip.modules").setup()
 require("nmkip.lang.authzed").setup()
 
 require("nmkip.behaviours.auto-save").setup()
-require("nmkip.behaviours.inter-process-yank").setup()
-require("nmkip.behaviours.yank-to-clipboard").setup()
