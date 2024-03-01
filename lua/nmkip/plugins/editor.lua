@@ -378,9 +378,6 @@ return {
     ft = "just",
   },
   {
-    "avm99963/vim-jjdescription"
-  },
-  {
     's1n7ax/nvim-window-picker',
     name = 'window-picker',
     event = 'VeryLazy',
