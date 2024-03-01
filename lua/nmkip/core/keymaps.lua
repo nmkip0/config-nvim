@@ -1,5 +1,5 @@
 local map = require("nmkip.helpers.keys").map
-local saving = require("nmkip.behaviours.auto-save")
+local saving = require("nmkip.modules.core.auto-save")
 
 map("n", "<leader>qq", function()
 	saving.write_all_buffers()

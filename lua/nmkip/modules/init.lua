@@ -9,8 +9,8 @@ local modules = {
 
   mod("core.inter-process-yank"),
   mod("core.yank-to-clipboard"),
-  --
-  -- mod("core.auto-save"),
+
+  mod("core.auto-save"),
   mod("core.buffer-switching"),
   -- mod("core.highlights"),
   --
