@@ -426,7 +426,16 @@ return {
     ft = "qf"},
   {
     "folke/todo-comments.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    opts = {}
+    dependencies = { "nvim-lua/plenary.nvim", "folke/trouble.nvim" },
+    opts = {
+      highlight = {
+        multiline = false,
+        after = ""
+      }
+    },
+    keys = {
+      { "<leader>st", "<cmd>TodoTrouble<cr>", desc = "Open TodoTrouble" },
+      { "<leader>sT", "<cmd>TodoTelescope<cr>", desc = "Open TodoTelescope" },
+    },
   }
 }
