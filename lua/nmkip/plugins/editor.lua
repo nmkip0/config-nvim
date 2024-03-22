@@ -423,5 +423,10 @@ return {
     end,
   },
   {"kevinhwang91/nvim-bqf",
-    ft = "qf"}
+    ft = "qf"},
+  {
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {}
+  }
 }
