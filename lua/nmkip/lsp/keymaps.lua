@@ -13,8 +13,8 @@ local function diag_float()
 	vim.diagnostic.open_float(win_opts.float_opts)
 end
 
-local common_lsp = {
-}
+local set = vim.keymap.set
+set("n", "<leader>x", "<cmd>source %<CR>", { desc = "Execute the current file" })
 
 return {
   g = {
