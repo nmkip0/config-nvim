@@ -64,10 +64,10 @@ return {
     end,
   },
   {
-    "akinsho/bufferline.nvim",
+    'akinsho/bufferline.nvim',
     event = "VeryLazy",
-    version = "*",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
+    version = "4.4.1",
+    dependencies = 'nvim-tree/nvim-web-devicons',
     opts = {
       options = {
         mode = "tabs",
@@ -75,7 +75,7 @@ return {
         separator_style = "thin",
         always_show_bufferline = false,
       },
-    },
+    }
   },
   {
     "nvim-lualine/lualine.nvim",

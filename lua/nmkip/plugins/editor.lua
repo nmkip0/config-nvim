@@ -243,6 +243,7 @@ return {
           },
         },
         defaults = {
+          dynamic_preview_title = true,
           layout_config = {
             vertical = { width = 0.9 },
           },

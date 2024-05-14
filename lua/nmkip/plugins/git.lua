@@ -33,19 +33,6 @@ return {
     },
   },
   {
-    "NeogitOrg/neogit",
-    dependencies = {
-      "nvim-lua/plenary.nvim",         -- required
-      "nvim-telescope/telescope.nvim", -- optional
-      "sindrets/diffview.nvim",        -- optional
-      "ibhagwan/fzf-lua",              -- optional
-    },
-    keys = {
-      { "<leader>gg", "<cmd>Neogit<cr>", desc = "Neogit" },
-    },
-    config = true
-  },
-  {
     "sindrets/diffview.nvim",
     keys = {
       { "<leader>gd", "<cmd>DiffviewOpen<cr>", desc = "Diff view" },
