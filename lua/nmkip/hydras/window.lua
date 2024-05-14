@@ -15,8 +15,8 @@ return {
       heads = {
         { "=", "<C-W>=", { desc = "Equalize windows" } },
 
-        { "h", "5<C-w>>", { desc = "resize ←" } },
-        { "l", "5<C-w><", { desc = "resize →" } },
+        { "h", "5<C-w><", { desc = "resize ←" } },
+        { "l", "5<C-w>>", { desc = "resize →" } },
         { "k", "5<C-W>+", { desc = "resize ↑" } },
         { "j", "5<C-W>-", { desc = "resize ↓" } },
 
