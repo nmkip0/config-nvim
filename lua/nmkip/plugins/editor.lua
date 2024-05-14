@@ -17,6 +17,7 @@ return {
         ["<leader>g"] = { name = "+git" },
         ["<leader>gh"] = { name = "+hunks" },
         ["<leader>q"] = { name = "+quit/session" },
+        ["<leader>r"] = { name = "+find and replace" },
         ["<leader>s"] = { name = "+search" },
         ["<leader>t"] = { name = "+toggles" },
         ["<leader>tc"] = { "<cmd>TSContextToggle<cr>" , "Treesitter Context" },
@@ -87,7 +88,10 @@ return {
     opts = { open_cmd = "noswapfile vnew" },
     -- stylua: ignore
     keys = {
-      { "<leader>sr", function() require("spectre").open() end, desc = "Replace in files (Spectre)" },
+      { "<leader>rr", '<cmd>lua require("spectre").toggle()<CR>', desc = "Find and replace" },
+      { "<leader>rR", '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', desc = "Find and replace (select word)" },
+      { "<leader>rf", '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', desc = "Find and replace in file (select word)"},
+      { "<leader>rF", '<cmd>lua require("spectre").open_file_search()<CR>', desc = "Find and replace in file" },
     },
   },
   {
