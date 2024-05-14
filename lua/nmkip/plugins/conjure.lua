@@ -15,6 +15,14 @@ local keymaps = {
     end,
     desc = "Eval last error",
   },
+  {
+    "<localleader>nr",
+    function()
+      local eval = require("nmkip.lang.clojure.eval").eval
+      eval("user", "(reload-namespaces)")
+    end,
+    desc = "user/reload-namespaces",
+  },
 }
 
 return {
@@ -121,7 +129,6 @@ return {
 
             n = {
               name = "+namespace",
-              r = { action["refresh-changed"], "Refresh changed namespaces" },
               R = { action["refresh-all"], "Refresh all namespaces" },
             },
 
