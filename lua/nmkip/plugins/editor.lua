@@ -190,16 +190,18 @@ return {
       { "<leader><leader>", "<cmd>Telescope resume<cr>", desc = "Resume" },
       {
         "<leader>ss",
-        function()
-          require("telescope.builtin").lsp_document_symbols()
-        end,
+        "<cmd>FzfLua lsp_document_symbols<cr>",
+        -- function()
+        --   require("telescope.builtin").lsp_document_symbols()
+        -- end,
         desc = "Goto Symbol",
       },
       {
         "<leader>sS",
-        function()
-          require("telescope.builtin").lsp_dynamic_workspace_symbols()
-        end,
+        "<cmd>FzfLua lsp_workspace_symbols<cr>",
+        -- function()
+        --   require("telescope.builtin").lsp_dynamic_workspace_symbols()
+        -- end,
         desc = "Goto Symbol (Workspace)",
       },
     },
@@ -351,6 +353,15 @@ return {
       }
     end,
   },
+{
+  "ibhagwan/fzf-lua",
+  -- optional for icon support
+  dependencies = { "nvim-tree/nvim-web-devicons" },
+  config = function()
+    -- calling `setup` is optional for customization
+      require "nmkip.config.fzf-lua"
+  end
+},
   -- A telescope.nvim extension designed to provide the best possible suggestions for quickly opening files in Neovim.
   -- smart-open will improve its suggestions over time, adapting to your usage.
   {

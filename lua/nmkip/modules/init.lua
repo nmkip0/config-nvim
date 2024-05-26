@@ -12,7 +12,6 @@ local modules = {
   mod("core.yank-to-clipboard"),
 
   mod("core.auto-save"),
-  mod("core.buffer-switching"),
 
   mod("lang.authzed"),
   mod("lang.babashka"),
