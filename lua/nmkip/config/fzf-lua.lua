@@ -5,9 +5,31 @@ local setup = {
       vertical = "up",
     },
   },
+  keymap = {
+    fzf = {
+      ["tab"] = "down",
+      ["btab"] = "up",
+      ["ctrl-space"] = "toggle",
+      ["ctrl-m"] = "toggle",
+      -- fzf '--bind=' options
+      ["ctrl-z"]      = "abort",
+      ["ctrl-u"]      = "unix-line-discard",
+      ["ctrl-f"]      = "half-page-down",
+      ["ctrl-b"]      = "half-page-up",
+      ["ctrl-a"]      = "beginning-of-line",
+      ["ctrl-e"]      = "end-of-line",
+      ["alt-a"]       = "toggle-all",
+      -- Only valid with fzf previewers (bat/cat/git/etc)
+      ["f3"]          = "toggle-preview-wrap",
+      ["f4"]          = "toggle-preview",
+      ["shift-down"]  = "preview-page-down",
+      ["shift-up"]    = "preview-page-up",
+    },
+  },
   fzf_opts = {
     ["--layout"] = "reverse-list",
     ["--cycle"] = true,
+    --["--bind"] = "tab:down,shift-tab:up,ctrl-tab:toggle",
   },
 }
 
