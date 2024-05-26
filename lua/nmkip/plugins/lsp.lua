@@ -1,4 +1,3 @@
-local servers = require("nmkip.lsp.servers")
 local keymaps = require("nmkip.lsp.keymaps")
 local utils = require("nmkip.lsp.utils")
 
@@ -27,6 +26,7 @@ return {
     dependencies = { "williamboman/mason.nvim" },
     lazy = true,
     config = function()
+      local servers = require("nmkip.lsp.servers")
       require("mason-lspconfig").setup({
         ensure_installed = vim.tbl_keys(servers),
       })
@@ -42,11 +42,30 @@ return {
     "neovim/nvim-lspconfig",
     event = "BufReadPre",
     dependencies = {
+      "folke/neodev.nvim",
       "hrsh7th/cmp-nvim-lsp",
       "williamboman/mason-lspconfig.nvim",
+
+      "WhoIsSethDaniel/mason-tool-installer.nvim",
+
+      { "j-hui/fidget.nvim", opts = {} },
+
+      -- Schema information
+      "b0o/SchemaStore.nvim",
     },
 
     config = function()
+
+      require("neodev").setup { }
+
+      local servers = require("nmkip.lsp.servers")
+
+      local ensure_installed = { "stylua" }
+
+      vim.list_extend(ensure_installed, servers)
+
+      require("mason-tool-installer").setup { ensure_installed = ensure_installed }
+
       local mason_lspconfig = require("mason-lspconfig")
       local lspconfig = require("lspconfig")
       local cmplsp = require("cmp_nvim_lsp")
@@ -182,15 +201,6 @@ return {
           })
         end,
       })
-    end,
-  },
-
-  {
-    "j-hui/fidget.nvim",
-    tag = "legacy",
-    event = "BufReadPre",
-    config = function()
-      require("fidget").setup({})
     end,
   },
   {
