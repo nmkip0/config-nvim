@@ -1,10 +1,10 @@
-require'window-picker'.setup({
+require("window-picker").setup({
   autoselect_one = true,
   highlights = {
     statusline = {
       focused = {
-        fg = '#ededed',
-        bg = '#e35e4f',
+        fg = "#ededed",
+        bg = "#e35e4f",
         bold = true,
       },
       unfocused = {
@@ -15,13 +15,13 @@ require'window-picker'.setup({
     },
     winbar = {
       focused = {
-        fg = '#ededed',
-        bg = '#e35e4f',
+        fg = "#ededed",
+        bg = "#e35e4f",
         bold = true,
       },
       unfocused = {
-        fg = '#ededed',
-        bg = '#44cc41',
+        fg = "#ededed",
+        bg = "#44cc41",
         bold = true,
       },
     },

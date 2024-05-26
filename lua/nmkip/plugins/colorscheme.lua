@@ -16,7 +16,7 @@ return {
       flavour = "frappe",
       background = {
         light = "latte",
-        dark = "mocha"
+        dark = "mocha",
       },
       transparent_background = false,
       term_colors = false,
@@ -78,5 +78,5 @@ return {
         which_key = true,
       },
     },
-  }
+  },
 }

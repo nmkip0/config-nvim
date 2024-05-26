@@ -69,7 +69,6 @@ local function read_nrepl_ports(dirs)
 end
 
 local function find_nrepl_processes()
-
   -- xargs -I % sh -c 'timeout 1s lsof -p % | grep cwd | awk "{print \$9}"' | \
   local cmd = [[
     ps aux | \

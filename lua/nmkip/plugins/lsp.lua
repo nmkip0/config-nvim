@@ -55,8 +55,7 @@ return {
     },
 
     config = function()
-
-      require("neodev").setup { }
+      require("neodev").setup({})
 
       local servers = require("nmkip.lsp.servers")
 
@@ -64,7 +63,7 @@ return {
 
       vim.list_extend(ensure_installed, servers)
 
-      require("mason-tool-installer").setup { ensure_installed = ensure_installed }
+      require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
       local mason_lspconfig = require("mason-lspconfig")
       local lspconfig = require("lspconfig")
@@ -208,18 +207,18 @@ return {
     event = { "BufReadPost", "BufNewFile" },
     config = function()
       require("illuminate").configure({
-          delay = 200,
-          providers = { "lsp" },
-                                     })
+        delay = 200,
+        providers = { "lsp" },
+      })
     end,
 
     init = function()
       vim.keymap.set("n", "]]", function()
-                       require("illuminate").goto_next_reference(true)
+        require("illuminate").goto_next_reference(true)
       end, { desc = "Next Reference" })
       vim.keymap.set("n", "[[", function()
-                       require("illuminate").goto_prev_reference(true)
+        require("illuminate").goto_prev_reference(true)
       end, { desc = "Prev Reference" })
     end,
-  }
+  },
 }

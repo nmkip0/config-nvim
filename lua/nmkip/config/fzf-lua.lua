@@ -7,7 +7,7 @@ local setup = {
   },
   fzf_opts = {
     ["--layout"] = "reverse-list",
-    ["--cycle"] = true
+    ["--cycle"] = true,
   },
 }
 

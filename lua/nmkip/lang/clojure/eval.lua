@@ -25,7 +25,7 @@ local function conjure_eval(form, opts)
     code = form,
     origin = "custom_command",
     ["passive?"] = opts.passive or false,
-    range = opts.range
+    range = opts.range,
   })
 end
 
@@ -39,7 +39,7 @@ end
 
 local function conjure_eval_tap(form)
   if form then
-    conjure_eval("(doto " .. form.content .. " tap>)", {original_form = form})
+    conjure_eval("(doto " .. form.content .. " tap>)", { original_form = form })
   end
 end
 

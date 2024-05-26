@@ -2,15 +2,15 @@ local win_opts = { float_opts = { border = "rounded" } }
 local tb = require("telescope.builtin")
 
 local function diag_next()
-	vim.diagnostic.goto_next(win_opts)
+  vim.diagnostic.goto_next(win_opts)
 end
 
 local function diag_prev()
-	vim.diagnostic.goto_prev(win_opts)
+  vim.diagnostic.goto_prev(win_opts)
 end
 
 local function diag_float()
-	vim.diagnostic.open_float(win_opts.float_opts)
+  vim.diagnostic.open_float(win_opts.float_opts)
 end
 
 local set = vim.keymap.set
@@ -26,14 +26,14 @@ return {
   ["<leader>"] = {
     c = {
       name = "+code",
-      a = { vim.lsp.buf.code_action, "Code actions"},
-      d = {"<cmd>TroubleToggle document_diagnostics<cr>" , "Document diagnostics" },
-      D = { "<cmd>TroubleToggle workspace_diagnostics<cr>" , "Workspace diagnostics" },
+      a = { vim.lsp.buf.code_action, "Code actions" },
+      d = { "<cmd>TroubleToggle document_diagnostics<cr>", "Document diagnostics" },
+      D = { "<cmd>TroubleToggle workspace_diagnostics<cr>", "Workspace diagnostics" },
       j = { diag_next, "Next Diagnostic" },
       k = { diag_prev, "Prev Diagnostic" },
       l = { diag_float, "Line diagnostic" },
       o = { "<cmd>OrganizeImports<cr>", "Organize Imports" },
-      r = { vim.lsp.buf.rename, "Rename"},
+      r = { vim.lsp.buf.rename, "Rename" },
       s = { tb.lsp_document_symbols, "Document symbols" },
       I = { ":LspInfo<cr>", "Lsp Info" },
       R = { ":LspRestart<cr>", "Lsp Restart" },

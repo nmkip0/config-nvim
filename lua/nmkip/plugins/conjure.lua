@@ -63,7 +63,6 @@ return {
       vim.g["conjure#client#clojure#nrepl#mapping#refresh_all"] = false
       vim.g["conjure#client#clojure#nrepl#mapping#refresh_clear"] = false
 
-
       -- Disable default log functions
       vim.g["conjure#mapping#log_split"] = false
       vim.g["conjure#mapping#log_vsplit"] = false
@@ -102,7 +101,7 @@ return {
             end,
             "Open the repl log buffer",
           },
-        }
+        },
       }, {
         prefix = "<localleader>",
       })
@@ -119,7 +118,6 @@ return {
               r = { require("nmkip.lang.clojure.eval").eval_tap_root_form, "Eval root form" },
             },
 
-
             l = {
               name = "+log",
               g = { require("nmkip.lang.clojure.log").toggle, "Toggle" },
@@ -133,18 +131,17 @@ return {
             },
 
             t = {
-              name = "+test"
+              name = "+test",
             },
 
             w = {
-              name = "+wrap"
+              name = "+wrap",
             },
 
             S = {
               require("nmkip.lang.clojure.defsc").defsc,
               "def score capture",
-            }
-
+            },
           }, {
             prefix = "<localleader>",
             buffer = event.buf,

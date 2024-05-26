@@ -1,4 +1,3 @@
-
 local lualine = require("lualine")
 
 local function get_lsp_client_status()
@@ -72,4 +71,3 @@ local setup = {
 }
 
 lualine.setup(setup)
-

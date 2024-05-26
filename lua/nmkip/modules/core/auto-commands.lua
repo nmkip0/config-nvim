@@ -67,7 +67,6 @@ M.setup = function()
       vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
     end,
   })
-
 end
 
 return M

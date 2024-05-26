@@ -20,11 +20,11 @@ return {
         ["<leader>r"] = { name = "+find and replace" },
         ["<leader>s"] = { name = "+search" },
         ["<leader>t"] = { name = "+toggles" },
-        ["<leader>tc"] = { "<cmd>TSContextToggle<cr>" , "Treesitter Context" },
+        ["<leader>tc"] = { "<cmd>TSContextToggle<cr>", "Treesitter Context" },
         ["<leader>u"] = { name = "+ui" },
         ["<leader>w"] = { name = "+window" },
         ["<leader>x"] = { name = "+diagnostics/quickfix" },
-        ["<leader>L"] = { name = "+lazy"}
+        ["<leader>L"] = { name = "+lazy" },
       },
     },
     config = function(_, opts)
@@ -72,7 +72,7 @@ return {
           vim.cmd.UndotreeToggle()
         end,
         desc = "UndoTree",
-      }
+      },
     },
     init = function()
       vim.g["undotree_WindowLayout"] = 3
@@ -119,13 +119,13 @@ return {
     opts = {
       picker = {
         telescope = {
-          use_default_mappings = false
+          use_default_mappings = false,
         },
       },
       highlight = {
         on_put = false,
         on_yank = true,
-        timer = 100
+        timer = 100,
       },
       preserve_cursor_position = {
         enabled = true,
@@ -138,7 +138,13 @@ return {
     keys = {
         -- stylua: ignore
       { "<leader>y", function() require("telescope").extensions.yank_history.yank_history({ }) end, desc = "Open Yank History" },
-      { "<leader>sy", function() require("telescope").extensions.yank_history.yank_history({ }) end, desc = "Open Yank History" },
+      {
+        "<leader>sy",
+        function()
+          require("telescope").extensions.yank_history.yank_history({})
+        end,
+        desc = "Open Yank History",
+      },
       { "y", "<Plug>(YankyYank)", mode = { "n", "x" }, desc = "Yank text" },
       { "p", "<Plug>(YankyPutAfter)", mode = { "n", "x" }, desc = "Put yanked text after cursor" },
       { "P", "<Plug>(YankyPutBefore)", mode = { "n", "x" }, desc = "Put yanked text before cursor" },
@@ -353,15 +359,15 @@ return {
       }
     end,
   },
-{
-  "ibhagwan/fzf-lua",
-  -- optional for icon support
-  dependencies = { "nvim-tree/nvim-web-devicons" },
-  config = function()
-    -- calling `setup` is optional for customization
-      require "nmkip.config.fzf-lua"
-  end
-},
+  {
+    "ibhagwan/fzf-lua",
+    -- optional for icon support
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      -- calling `setup` is optional for customization
+      require("nmkip.config.fzf-lua")
+    end,
+  },
   -- A telescope.nvim extension designed to provide the best possible suggestions for quickly opening files in Neovim.
   -- smart-open will improve its suggestions over time, adapting to your usage.
   {
@@ -394,24 +400,23 @@ return {
     ft = "just",
   },
   {
-    's1n7ax/nvim-window-picker',
-    name = 'window-picker',
-    event = 'VeryLazy',
-    version = '2.*',
+    "s1n7ax/nvim-window-picker",
+    name = "window-picker",
+    event = "VeryLazy",
+    version = "2.*",
     config = function()
-      require "nmkip.config.window-picker"
+      require("nmkip.config.window-picker")
     end,
   },
-  {"kevinhwang91/nvim-bqf",
-    ft = "qf"},
+  { "kevinhwang91/nvim-bqf", ft = "qf" },
   {
     "folke/todo-comments.nvim",
     event = "VeryLazy",
     dependencies = { "nvim-lua/plenary.nvim", "folke/trouble.nvim" },
     config = function()
-        local todo = require("todo-comments")
+      local todo = require("todo-comments")
 
-        todo.setup({
+      todo.setup({
         -- list of named colors where we try to extract the guifg from the
         -- list of highlight groups or use the hex color if hl not found as a fallback
         colors = {
@@ -428,5 +433,5 @@ return {
       { "<leader>st", "<cmd>TodoTrouble<cr>", desc = "Open TodoTrouble" },
       { "<leader>sT", "<cmd>TodoTelescope<cr>", desc = "Open TodoTelescope" },
     },
-  }
+  },
 }

@@ -25,7 +25,7 @@ return {
       "petertriho/cmp-git",
     },
     config = function()
-      require "nmkip.config.completion"
+      require("nmkip.config.completion")
     end,
   },
 }

@@ -53,7 +53,6 @@ return {
           ["<localleader>r"] = { paredit.api.raise_element, "Raise element" },
           ["<localleader>R"] = { paredit.api.raise_form, "Raise form" },
 
-
           ["<localleader>ws"] = {
             function()
               wrap_nearest_form("(sc.api/spy ", ")")
