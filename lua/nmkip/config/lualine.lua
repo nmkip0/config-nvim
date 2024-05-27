@@ -18,6 +18,16 @@ local function get_nrepl_status()
   return ""
 end
 
+local function show_recording()
+  local reg = vim.fn.reg_recording()
+
+  if reg == "" then
+    return ""
+  end
+
+  return "RECORDING @" .. reg
+end
+
 local setup = {
   options = {
     icons_enabled = true,
@@ -27,6 +37,7 @@ local setup = {
   sections = {
     lualine_a = {
       "mode",
+      { show_recording, color = { bg = "#d79921" } },
     },
     lualine_b = {
       "branch",
