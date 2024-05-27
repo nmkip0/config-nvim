@@ -22,7 +22,7 @@ M.setup = function()
 
   map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", "Escape and clear hlsearch")
 
-  --map("n", "<leader>`", "<C-^>", "Toggle previous buffer")
+  map("n", "<leader>`", "<C-^>", "Toggle previous buffer")
 
   -- tabs
   map("n", "<leader><tab>l", "<cmd>tabnext<cr>", "Next Tab")
