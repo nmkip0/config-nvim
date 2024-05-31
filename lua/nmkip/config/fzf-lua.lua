@@ -29,7 +29,6 @@ local setup = {
   fzf_opts = {
     ["--layout"] = "reverse-list",
     ["--cycle"] = true,
-    --["--bind"] = "tab:down,shift-tab:up,ctrl-tab:toggle",
   },
 }
 
