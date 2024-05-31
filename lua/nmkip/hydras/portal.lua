@@ -19,12 +19,12 @@ end
 
 local function open_portal()
   eval([[
-    (do
-      (resolve 'portal.api)
-      (add-tap #'portal.api/submit)
-      (portal.api/close)
-      (def *portal* (portal.api/open {:theme :portal.colors/gruvbox}))
-      nil)
+    (do (ns user)
+        ((requiring-resolve 'portal.api/close))
+        (def *portal* ((requiring-resolve 'portal.api/open)
+                       {:theme :portal.colors/gruvbox}))
+        (add-tap (requiring-resolve 'portal.api/submit))
+        nil)
   ]])
 end
 

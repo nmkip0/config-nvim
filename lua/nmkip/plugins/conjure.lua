@@ -3,9 +3,17 @@ local keymaps = {
     "<localleader>!",
     function()
       local eval = require("nmkip.lang.clojure.eval").eval
-      eval("user", "(do (tap> (reset)))")
+      eval("user", "(reset-app!)")
     end,
     desc = "user/reset",
+  },
+  {
+    "<localleader>S",
+    function()
+      local eval = require("nmkip.lang.clojure.eval").eval
+      eval("user", "(stop-app!)")
+    end,
+    desc = "user/stop",
   },
   {
     "<localleader>*",
