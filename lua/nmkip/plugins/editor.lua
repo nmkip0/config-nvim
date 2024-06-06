@@ -102,16 +102,15 @@ return {
     end,
   },
   {
-    "echasnovski/mini.pairs",
-    version = "0.9.0",
-    config = function()
-      require("mini.pairs").setup({
-        mappings = {
-          ["<"] = { action = "open", pair = "<>", neigh_pattern = "[^\\]." },
-          [">"] = { action = "close", pair = "<>", neigh_pattern = "[^\\]." },
-        },
-      })
-    end,
+    "altermo/ultimate-autopair.nvim",
+    event = { "InsertEnter", "CmdlineEnter" },
+    branch = "v0.6", --recommended as each new version will have breaking changes
+    opts = {
+
+      config_internal_pairs = {
+        { "'", "'", suround = true, alpha = true, nft = { "tex", "clojure" }, multiline = false },
+      },
+    },
   },
   {
     "gbprod/yanky.nvim",
