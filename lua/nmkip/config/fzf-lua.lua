@@ -30,6 +30,9 @@ local setup = {
     ["--layout"] = "default", -- "reverse-list",
     ["--cycle"] = true,
   },
+  fzf_colors = {
+    ["gutter"] = "-1",
+  },
 }
 
 -- https://vi.stackexchange.com/questions/37287/in-nvim-can-i-map-tab-without-removing-c-i-as-jump-forward
