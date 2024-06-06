@@ -37,6 +37,7 @@ return {
   {
     "Olical/conjure",
     version = "4.*",
+    commit = "dfb9f75010a181c090ab905b2a2b4180aea20f15",
     ft = { "clojure", "lua" },
     keys = keymaps,
     init = function()
