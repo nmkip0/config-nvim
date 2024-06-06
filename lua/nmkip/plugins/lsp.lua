@@ -45,6 +45,7 @@ return {
       "folke/neodev.nvim",
       "hrsh7th/cmp-nvim-lsp",
       "williamboman/mason-lspconfig.nvim",
+      "antosha417/nvim-lsp-file-operations",
 
       "WhoIsSethDaniel/mason-tool-installer.nvim",
 
@@ -56,6 +57,7 @@ return {
 
     config = function()
       require("neodev").setup({})
+      local lsp_file_operations = require("lsp-file-operations")
 
       local servers = require("nmkip.lsp.servers")
 
@@ -71,13 +73,15 @@ return {
 
       local default_capabilities = vim.lsp.protocol.make_client_capabilities()
       local cmp_capabilities = cmplsp.default_capabilities(default_capabilities)
-      local capabilities = vim.tbl_deep_extend("force", default_capabilities, cmp_capabilities, {
-        workspace = {
-          workspaceEdit = {
-            documentChanges = true,
+      local file_operation_capabilities = lsp_file_operations.default_capabilities()
+      local capabilities =
+        vim.tbl_deep_extend("force", default_capabilities, cmp_capabilities, file_operation_capabilities, {
+          workspace = {
+            workspaceEdit = {
+              documentChanges = true,
+            },
           },
-        },
-      })
+        })
 
       local options = {
         flags = {
@@ -93,6 +97,27 @@ return {
             update_in_insert = true,
             underline = true,
           }),
+          -- ["textDocument/rename"] = function(...)
+          --   -- are we renaming namespace?
+          --   -- it also should be clojure only btw
+          --   local _, rename_data, ctx = ...
+          --   local filetype = vim.api.nvim_get_option_value("filetype", { buf = ctx.bufnr })
+          --   if filetype == "clojure" then
+          --     local doc_changes = rename_data.documentChanges[1]
+          --     if doc_changes and doc_changes.kind == "rename" then
+          --       -- ok we are renaming namespace
+          --       -- construct data (emulate neo-tree rename call)
+          --       local data = {
+          --         old_name = vim.uri_to_fname(doc_changes.oldUri),
+          --         new_name = vim.uri_to_fname(doc_changes.newUri),
+          --       }
+          --       require("lsp-file-operations.will-rename").callback(data)
+          --       require("lsp-file-operations.did-rename").callback(data)
+          --     end
+          --   end
+          --   -- call regular handler
+          --   vim.lsp.handlers["textDocument/rename"](...)
+          -- end,
         },
 
         on_attach = function(_, bufnr)
@@ -219,6 +244,16 @@ return {
       vim.keymap.set("n", "[[", function()
         require("illuminate").goto_prev_reference(true)
       end, { desc = "Prev Reference" })
+    end,
+  },
+  {
+    "antosha417/nvim-lsp-file-operations",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-neo-tree/neo-tree.nvim",
+    },
+    config = function()
+      require("lsp-file-operations").setup()
     end,
   },
 }
