@@ -162,55 +162,55 @@ return {
     "nvim-telescope/telescope.nvim",
     cmd = "Telescope",
     -- version = false, -- telescope did only one release, so use HEAD for now
-    keys = {
-      {
-        "<leader>,",
-        "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>",
-        desc = "Switch Buffer",
-      },
-      { "<leader>/", "<cmd>Telescope live_grep<cr>", desc = "Grep (root dir)" },
-      { "<leader>:", "<cmd>Telescope command_history<cr>", desc = "Command History" },
-      -- buffers
-      { "<leader>bb", "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>", desc = "Buffers" },
-      -- files
-      { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find files" },
-      { "<leader>fr", "<cmd>Telescope oldfiles cwd_only=true<cr>", desc = "Open Recent" },
-      -- git
-      { "<leader>gb", "<cmd>Telescope git_branches<CR>", desc = "Branches" },
-      { "<leader>gc", "<cmd>Telescope git_commits<CR>", desc = "Commits" },
-      { "<leader>gs", "<cmd>Telescope git_status<CR>", desc = "Status" },
-      -- search
-      { '<leader>s"', "<cmd>Telescope registers<cr>", desc = "Registers" },
-      { "<leader>sa", "<cmd>Telescope autocommands<cr>", desc = "Auto Commands" },
-      { "<leader>sb", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Buffer" },
-      { "<leader>sc", "<cmd>Telescope command_history<cr>", desc = "Command History" },
-      { "<leader>sC", "<cmd>Telescope commands<cr>", desc = "Commands" },
-      { "<leader>sd", "<cmd>Telescope diagnostics bufnr=0<cr>", desc = "Document diagnostics" },
-      { "<leader>sD", "<cmd>Telescope diagnostics<cr>", desc = "Workspace diagnostics" },
-      { "<leader>sh", "<cmd>Telescope help_tags<cr>", desc = "Help Pages" },
-      { "<leader>sH", "<cmd>Telescope highlights<cr>", desc = "Search Highlight Groups" },
-      { "<leader>sk", "<cmd>Telescope keymaps<cr>", desc = "Key Maps" },
-      { "<leader>sM", "<cmd>Telescope man_pages<cr>", desc = "Man Pages" },
-      { "<leader>sm", "<cmd>Telescope marks<cr>", desc = "Jump to Mark" },
-      { "<leader>so", "<cmd>Telescope vim_options<cr>", desc = "Options" },
-      { "<leader><leader>", "<cmd>Telescope resume<cr>", desc = "Resume" },
-      {
-        "<leader>ss",
-        "<cmd>FzfLua lsp_document_symbols<cr>",
-        -- function()
-        --   require("telescope.builtin").lsp_document_symbols()
-        -- end,
-        desc = "Goto Symbol",
-      },
-      {
-        "<leader>sS",
-        "<cmd>FzfLua lsp_workspace_symbols<cr>",
-        -- function()
-        --   require("telescope.builtin").lsp_dynamic_workspace_symbols()
-        -- end,
-        desc = "Goto Symbol (Workspace)",
-      },
-    },
+    -- keys = {
+    --   {
+    --     "<leader>,",
+    --     "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>",
+    --     desc = "Switch Buffer",
+    --   },
+    --   { "<leader>/", "<cmd>Telescope live_grep<cr>", desc = "Grep (root dir)" },
+    --   { "<leader>:", "<cmd>Telescope command_history<cr>", desc = "Command History" },
+    --   -- buffers
+    --   { "<leader>bb", "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>", desc = "Buffers" },
+    --   -- files
+    --   { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find files" },
+    --   { "<leader>fr", "<cmd>Telescope oldfiles cwd_only=true<cr>", desc = "Open Recent" },
+    --   -- git
+    --   { "<leader>gb", "<cmd>Telescope git_branches<CR>", desc = "Branches" },
+    --   { "<leader>gc", "<cmd>Telescope git_commits<CR>", desc = "Commits" },
+    --   { "<leader>gs", "<cmd>Telescope git_status<CR>", desc = "Status" },
+    --   -- search
+    --   { '<leader>s"', "<cmd>Telescope registers<cr>", desc = "Registers" },
+    --   { "<leader>sa", "<cmd>Telescope autocommands<cr>", desc = "Auto Commands" },
+    --   { "<leader>sb", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Buffer" },
+    --   { "<leader>sc", "<cmd>Telescope command_history<cr>", desc = "Command History" },
+    --   { "<leader>sC", "<cmd>Telescope commands<cr>", desc = "Commands" },
+    --   { "<leader>sd", "<cmd>Telescope diagnostics bufnr=0<cr>", desc = "Document diagnostics" },
+    --   { "<leader>sD", "<cmd>Telescope diagnostics<cr>", desc = "Workspace diagnostics" },
+    --   { "<leader>sh", "<cmd>Telescope help_tags<cr>", desc = "Help Pages" },
+    --   { "<leader>sH", "<cmd>Telescope highlights<cr>", desc = "Search Highlight Groups" },
+    --   { "<leader>sk", "<cmd>Telescope keymaps<cr>", desc = "Key Maps" },
+    --   { "<leader>sM", "<cmd>Telescope man_pages<cr>", desc = "Man Pages" },
+    --   { "<leader>sm", "<cmd>Telescope marks<cr>", desc = "Jump to Mark" },
+    --   { "<leader>so", "<cmd>Telescope vim_options<cr>", desc = "Options" },
+    --   { "<leader><leader>", "<cmd>Telescope resume<cr>", desc = "Resume" },
+    --   {
+    --     "<leader>ss",
+    --     "<cmd>FzfLua lsp_document_symbols<cr>",
+    --     -- function()
+    --     --   require("telescope.builtin").lsp_document_symbols()
+    --     -- end,
+    --     desc = "Goto Symbol",
+    --   },
+    --   {
+    --     "<leader>sS",
+    --     "<cmd>FzfLua lsp_workspace_symbols<cr>",
+    --     -- function()
+    --     --   require("telescope.builtin").lsp_dynamic_workspace_symbols()
+    --     -- end,
+    --     desc = "Goto Symbol (Workspace)",
+    --   },
+    -- },
     opts = function()
       local actions = require("telescope.actions")
 
@@ -363,6 +363,29 @@ return {
     "ibhagwan/fzf-lua",
     -- optional for icon support
     dependencies = { "nvim-tree/nvim-web-devicons" },
+    keys = {
+      { "<leader>/", "<cmd>FzfLua grep<cr><cr>", desc = "Grep (root dir)" },
+      { "<leader>:", "<cmd>FzfLua command_history<cr>", desc = "Command History" },
+      { "<leader><leader>", "<cmd>FzfLua resume<cr>", desc = "Resume" },
+      -- files
+      { "<leader>ff", "<cmd>FzfLua files<cr>", desc = "Find files" },
+      { "<leader>fr", "<cmd>FzfLua oldfiles<cr>", desc = "Open Recent" },
+      -- search
+      { '<leader>s"', "<cmd>FzfLua registers<cr>", desc = "Registers" },
+      { "<leader>sa", "<cmd>FzfLua autocmds<cr>", desc = "Auto Commands" },
+      { "<leader>sb", "<cmd>FzfLua grep_curbuf<cr>", desc = "Buffer" },
+      { "<leader>sc", "<cmd>FzfLua command_history<cr>", desc = "Command History" },
+      { "<leader>sC", "<cmd>FzfLua commands<cr>", desc = "Commands" },
+      { "<leader>sd", "<cmd>FzfLua diagnostics_document<cr>", desc = "Document diagnostics" },
+      { "<leader>sD", "<cmd>FzfLua diagnostics_workspace<cr>", desc = "Workspace diagnostics" },
+      { "<leader>sh", "<cmd>FzfLua helptags<cr>", desc = "Help Pages" },
+      { "<leader>sH", "<cmd>FzfLua highlights<cr>", desc = "Search Highlight Groups" },
+      { "<leader>sk", "<cmd>FzfLua keymaps<cr>", desc = "Key Maps" },
+      { "<leader>sM", "<cmd>FzfLua manpages<cr>", desc = "Man Pages" },
+      { "<leader>sm", "<cmd>FzfLua marks<cr>", desc = "Jump to Mark" },
+      { "<leader>ss", "<cmd>FzfLua lsp_document_symbols<cr>", desc = "Goto Symbol" },
+      { "<leader>sS", "<cmd>FzfLua lsp_workspace_symbols<cr>", desc = "Goto Symbol (Workspace)" },
+    },
     config = function()
       -- calling `setup` is optional for customization
       require("nmkip.config.fzf-lua")
