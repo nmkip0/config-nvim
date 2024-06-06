@@ -4,8 +4,9 @@ return {
     event = "BufReadPost",
     config = function()
       local conform = require("conform")
+      local util = require("conform.util")
 
-      local js_formatter = { "prettierd", "prettier" }
+      local js_formatter = { "biome", "prettierd", "prettier" }
 
       conform.setup({
         formatters_by_ft = {
@@ -18,6 +19,15 @@ return {
         },
 
         formatters = {
+          biome = {
+            command = "biome",
+            stdin = true,
+            args = { "check", "--write", "--unsafe", "--stdin-file-path", "$FILENAME" },
+            cwd = util.root_file({
+              "biome.json",
+              "package.json",
+            }),
+          },
           just = {
             command = "just",
             args = {

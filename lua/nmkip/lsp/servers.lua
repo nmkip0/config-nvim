@@ -54,6 +54,8 @@ return {
 
   tsserver = {},
 
+  biome = {},
+
   jdtls = {
     single_file_support = true,
     settings = {
