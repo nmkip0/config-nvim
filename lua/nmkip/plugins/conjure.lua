@@ -72,6 +72,9 @@ return {
       vim.g["conjure#client#clojure#nrepl#mapping#refresh_all"] = false
       vim.g["conjure#client#clojure#nrepl#mapping#refresh_clear"] = false
 
+
+      vim.g["conjure#client#clojure#nrepl#mapping#run_current_ns_tests"] = false
+
       -- Disable default log functions
       vim.g["conjure#mapping#log_split"] = false
       vim.g["conjure#mapping#log_vsplit"] = false
