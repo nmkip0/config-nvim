@@ -6,6 +6,8 @@ local M = {}
 M.setup = function()
   local general = augroup("General", { clear = true })
 
+
+
   autocmd("FileType", {
     pattern = { "*" },
     group = general,
@@ -17,6 +19,17 @@ M.setup = function()
       vim.opt.formatoptions:remove("o")
       vim.opt.formatoptions:append("r")
     end,
+  })
+
+  vim.api.nvim_create_autocmd('TextYankPost', {
+    callback = function()
+      vim.highlight.on_yank({
+        -- on_visual = false,
+        timeout = 150,
+      })
+    end,
+    group = vim.api.nvim_create_augroup('YankHighlight', { clear = true }),
+    pattern = '*',
   })
 
   vim.api.nvim_create_autocmd("FileType", {
