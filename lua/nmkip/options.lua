@@ -6,6 +6,9 @@ vim.g.maplocalleader = ","
 
 local opt = vim.opt
 
+-- INFO: No name issue. TRY IT OUT
+opt.hidden = false
+
 opt.backup = false
 opt.cmdheight = 0 -- more space in the neovim command line for displaying messages
 opt.autowrite = true -- Enable auto write
