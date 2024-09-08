@@ -1,5 +1,4 @@
 local win_opts = { float_opts = { border = "rounded" } }
-local tb = require("telescope.builtin")
 
 local function diag_next()
   vim.diagnostic.goto_next(win_opts)
@@ -18,10 +17,25 @@ set("n", "<leader>x", "<cmd>source %<CR>", { desc = "Execute the current file" }
 
 return {
   g = {
-    d = { ":Telescope lsp_definitions<cr>", "Go to Definition" },
-    i = { ":Telescope lsp_implementations<cr>", "Go to Impementations" },
-    r = { ":Telescope lsp_references<cr>", "Symbol References" },
-    t = { ":Telescope lsp_type_definitions<cr>", "Type Definitions" },
+    d = {
+      function()
+        require("fzf-lua").lsp_definitions({
+          jump_to_single_result = true,
+        })
+      end,
+      "Go to Definition",
+    },
+    i = { ":FzfLua lsp_implementations<cr>", "Go to Impementations" },
+    r = {
+      function()
+        require("fzf-lua").lsp_references({
+          ignore_current_line = true,
+          includeDeclaration = true,
+        })
+      end,
+      "Symbol References",
+    },
+    t = { ":FzfLua lsp_type_defs<cr>", "Type Definitions" },
   },
   ["<leader>"] = {
     c = {
@@ -34,10 +48,10 @@ return {
       l = { diag_float, "Line diagnostic" },
       o = { "<cmd>OrganizeImports<cr>", "Organize Imports" },
       r = { vim.lsp.buf.rename, "Rename" },
-      s = { tb.lsp_document_symbols, "Document symbols" },
+      s = { "<cmd>FzfLua lsp_document_symbols<cr>", "Document symbols" },
       I = { ":LspInfo<cr>", "Lsp Info" },
       R = { ":LspRestart<cr>", "Lsp Restart" },
-      S = { tb.lsp_dynamic_workspace_symbols, "Workspace symbols" },
+      S = { "<cmd>FzfLua lsp_workspace_symbols<cr>", "Workspace symbols" },
     },
   },
   K = { vim.lsp.buf.hover, "Hover doc" },
