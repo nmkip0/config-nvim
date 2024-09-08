@@ -14,6 +14,8 @@ local modules = {
 
   mod("lang.authzed"),
   mod("lang.babashka"),
+
+  mod("clojure.format"),
 }
 
 local M = {}
