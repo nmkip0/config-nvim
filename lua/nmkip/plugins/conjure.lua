@@ -16,12 +16,12 @@ local keymaps = {
     desc = "user/stop",
   },
   {
-    "<localleader>*",
+    "<localleader>t*",
     function()
       local eval = require("nmkip.lang.clojure.eval").eval
       eval("user", "(do (require '[clojure.pprint :as pprint]) (pprint/pprint *e) (tap> *e))")
     end,
-    desc = "Eval last error",
+    desc = "Print and Tap last error",
   },
   {
     "<localleader>nr",
