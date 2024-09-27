@@ -1,6 +1,6 @@
 return {
   {
-    "anuvyklack/hydra.nvim",
+    "nvimtools/hydra.nvim",
     event = "VeryLazy",
     config = function()
       require("nmkip.hydras.window").create()
