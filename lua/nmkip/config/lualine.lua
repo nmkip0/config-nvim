@@ -18,6 +18,10 @@ local function get_nrepl_status()
   return ""
 end
 
+local function maximize_status()
+  return vim.t.maximized and '[Z]' or ''
+end
+
 local function show_recording()
   local reg = vim.fn.reg_recording()
 
@@ -55,7 +59,7 @@ local setup = {
           if #filename > 80 then
             filename = vim.fs.basename(filename)
           end
-          return filename
+          return filename .. maximize_status()
         end,
       },
     },

@@ -180,7 +180,15 @@ return {
       })
     end,
     keys = {
-      { "<leader>st", "<cmd>TodoTrouble<cr>", desc = "Open TodoTrouble" }
+      { "<leader>st", "<cmd>TodoTrouble<cr>", desc = "Open TodoTrouble" },
     },
+  },
+  {
+    "declancm/maximize.nvim",
+    config = true,
+    keys = {
+      { "<leader>tm", "<cmd>Maximize<cr>", desc = "Toggle maximize" },
+      { "<leader>wm", "<cmd>Maximize<cr>", desc = "Toggle maximize" }
+    }
   },
 }
