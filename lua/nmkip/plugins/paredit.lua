@@ -5,19 +5,23 @@ return {
     ft = { "clojure" },
     config = function()
       local paredit = require("nvim-paredit")
-      local langs = require("nvim-paredit.lang")
       local wrap = require("nvim-paredit.api.wrap")
+      local ts_forms = require("nvim-paredit.treesitter.forms")
+      local ts_context = require("nvim-paredit.treesitter.context")
 
       local function wrap_nearest_form(prefix, suffix)
         local buf = vim.api.nvim_get_current_buf()
-        local lang = langs.get_language_api()
-        local current_element = wrap.find_element_under_cursor(lang)
+        local context = ts_context.create_context()
 
-        if not current_element then
+        if not context then
           return
         end
 
-        local form = wrap.find_form(current_element, lang)
+        local form = ts_forms.find_nearest_form(context.node, context)
+
+        if not form then
+          return
+        end
 
         return wrap.wrap_element(buf, form, prefix, suffix)
       end
