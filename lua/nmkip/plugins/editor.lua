@@ -81,20 +81,6 @@ return {
       vim.g["undotree_SetFocusWhenToggle"] = 1
     end,
   },
-  -- search/replace in multiple files
-  {
-    "nvim-pack/nvim-spectre",
-    build = false,
-    cmd = "Spectre",
-    opts = { open_cmd = "noswapfile vnew" },
-    -- stylua: ignore
-    keys = {
-      { "<leader>rr", '<cmd>lua require("spectre").toggle()<CR>', desc = "Find and replace" },
-      { "<leader>rR", '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', desc = "Find and replace (select word)" },
-      { "<leader>rf", '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', desc = "Find and replace in file (select word)"},
-      { "<leader>rF", '<cmd>lua require("spectre").open_file_search()<CR>', desc = "Find and replace in file" },
-    },
-  },
   {
     "numToStr/Comment.nvim",
     event = "BufReadPost",
