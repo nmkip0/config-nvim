@@ -64,6 +64,8 @@ return {
   },
   {
     "akinsho/bufferline.nvim",
+    branch = "main",
+    commit = "73edc1f2732678e7a681e3d3be49782610914f6b",
     event = "VeryLazy",
     version = "4.4.1",
     dependencies = "nvim-tree/nvim-web-devicons",
