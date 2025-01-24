@@ -32,6 +32,7 @@ return {
           "html",
           "javascript",
           "http",
+          "hurl",
           "json",
           "lua",
           "luadoc",
