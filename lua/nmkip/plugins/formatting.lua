@@ -10,12 +10,25 @@ return {
 
       conform.setup({
         formatters_by_ft = {
-          javascript = { js_formatter },
-          typescript = { js_formatter },
-          typescriptreact = { js_formatter },
+          javascript = js_formatter,
+          typescript = js_formatter,
+          typescriptreact = js_formatter,
 
+          json = { "prettierd" },
           lua = { "stylua" },
           just = { "just" },
+          markdown = function()
+            return { "prettier", "injected" }
+          end,
+          mdx = function()
+            return { "prettier", "injected" }
+          end,
+          hurl = function()
+            return { "injected" }
+          end,
+          http = function()
+            return { "injected" }
+          end,
         },
 
         formatters = {
@@ -40,6 +53,16 @@ return {
           },
         },
       })
+
+      conform.formatters.injected = {
+        options = {
+          ignore_errors = true,
+          lang_to_formatters = {
+            clojure = { "cljfmt" },
+            json = { "prettierd"  },
+          },
+        },
+      }
 
       local function format()
         conform.format({
