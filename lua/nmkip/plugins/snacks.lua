@@ -103,6 +103,7 @@ end
 return {
   "folke/snacks.nvim",
   keys = {
+    -- Scratch
     { "<leader>.",  function() Snacks.scratch() end, desc = "Toggle Scratch Buffer" },
     { "<leader>S",  function() Snacks.scratch.select() end, desc = "Select Scratch Buffer" },
 
@@ -147,17 +148,13 @@ return {
     { "gd", function() Snacks.picker.lsp_definitions() end, desc = "Goto Definition" },
     { "gr", function() Snacks.picker.lsp_references() end, nowait = true, desc = "References" },
     { "gI", function() Snacks.picker.lsp_implementations() end, desc = "Goto Implementation" },
-    { "gy", function() Snacks.picker.lsp_type_definitions() end, desc = "Goto T[y]pe Definition" },
+    { "gy", function() Snacks.picker.lsp_type_definitions() end, desc = "Goto Type Definition" },
     { "<leader>ss", function() Snacks.picker.lsp_symbols() end, desc = "LSP Symbols" },
     { "<leader>sS", workspace_symbol_picker, desc = "LSP Workspace Symbols" },
   },
   ---@type snacks.Config
   opts = {
-    scratch = {
-      -- your scratch configuration comes here
-      -- or leave it empty to use the default settings
-      -- refer to the configuration section below
-    },
+    scratch = require("nmkip.config.scratch"),
     picker = {
        -- matcher = {
        --   fuzzy = true, -- use fuzzy matching
