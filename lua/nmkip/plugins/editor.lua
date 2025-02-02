@@ -100,38 +100,6 @@ return {
     },
   },
   {
-    "ibhagwan/fzf-lua",
-    -- optional for icon support
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    keys = {
-      { "<leader>/", "<cmd>FzfLua grep<cr><cr>", desc = "Grep (root dir)" },
-      { "<leader>:", "<cmd>FzfLua command_history<cr>", desc = "Command History" },
-      { "<leader><leader>", "<cmd>FzfLua resume<cr>", desc = "Resume" },
-      -- files
-      { "<leader>ff", "<cmd>FzfLua files<cr>", desc = "Find files" },
-      { "<leader>fr", "<cmd>FzfLua oldfiles<cr>", desc = "Open Recent" },
-      -- search
-      { '<leader>s"', "<cmd>FzfLua registers<cr>", desc = "Registers" },
-      { "<leader>sa", "<cmd>FzfLua autocmds<cr>", desc = "Auto Commands" },
-      { "<leader>sb", "<cmd>FzfLua grep_curbuf<cr>", desc = "Buffer" },
-      { "<leader>sc", "<cmd>FzfLua command_history<cr>", desc = "Command History" },
-      { "<leader>sC", "<cmd>FzfLua commands<cr>", desc = "Commands" },
-      { "<leader>sd", "<cmd>FzfLua diagnostics_document<cr>", desc = "Document diagnostics" },
-      { "<leader>sD", "<cmd>FzfLua diagnostics_workspace<cr>", desc = "Workspace diagnostics" },
-      { "<leader>sh", "<cmd>FzfLua helptags<cr>", desc = "Help Pages" },
-      { "<leader>sH", "<cmd>FzfLua highlights<cr>", desc = "Search Highlight Groups" },
-      { "<leader>sk", "<cmd>FzfLua keymaps<cr>", desc = "Key Maps" },
-      { "<leader>sM", "<cmd>FzfLua manpages<cr>", desc = "Man Pages" },
-      { "<leader>sm", "<cmd>FzfLua marks<cr>", desc = "Jump to Mark" },
-      { "<leader>ss", "<cmd>FzfLua lsp_document_symbols<cr>", desc = "Goto Symbol" },
-      { "<leader>sS", "<cmd>FzfLua lsp_workspace_symbols<cr>", desc = "Goto Symbol (Workspace)" },
-    },
-    config = function()
-      -- calling `setup` is optional for customization
-      require("nmkip.config.fzf-lua")
-    end,
-  },
-  {
     "NoahTheDuke/vim-just",
     ft = "just",
   },

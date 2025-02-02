@@ -75,27 +75,6 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 return {
-  g = {
-    d = {
-      function()
-        require("fzf-lua").lsp_definitions({
-          jump_to_single_result = true,
-        })
-      end,
-      "Go to Definition",
-    },
-    i = { ":FzfLua lsp_implementations<cr>", "Go to Impementations" },
-    r = {
-      function()
-        require("fzf-lua").lsp_references({
-          ignore_current_line = true,
-          includeDeclaration = true,
-        })
-      end,
-      "Symbol References",
-    },
-    t = { ":FzfLua lsp_type_defs<cr>", "Type Definitions" },
-  },
   ["<leader>"] = {
     c = {
       name = "+code",
@@ -107,10 +86,8 @@ return {
       l = { diag_float, "Line diagnostic" },
       o = { "<cmd>OrganizeImports<cr>", "Organize Imports" },
       r = { vim.lsp.buf.rename, "Rename" },
-      s = { "<cmd>FzfLua lsp_document_symbols<cr>", "Document symbols" },
       I = { ":LspInfo<cr>", "Lsp Info" },
       R = { ":LspRestart<cr>", "Lsp Restart" },
-      S = { "<cmd>FzfLua lsp_workspace_symbols<cr>", "Workspace symbols" },
     },
   },
   K = { vim.lsp.buf.hover, "Hover doc" },

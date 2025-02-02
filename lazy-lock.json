@@ -42,7 +42,7 @@
   "playground": { "branch": "master", "commit": "ba48c6a62a280eefb7c85725b0915e021a1a0749" },
   "plenary.nvim": { "branch": "master", "commit": "3707cdb1e43f5cea73afb6037e6494e7ce847a66" },
   "render-markdown.nvim": { "branch": "main", "commit": "46b0d4125fa5ef6d93a867d540f7c422c339ecc2" },
-  "snacks.nvim": { "branch": "main", "commit": "bc3f656620daf032b462669d7651fe84b286d45b" },
+  "snacks.nvim": { "branch": "main", "commit": "5c5b40b5d0ed4166c751a11a839b015f4ad6e26a" },
   "todo-comments.nvim": { "branch": "main", "commit": "304a8d204ee787d2544d8bc23cd38d2f929e7cc5" },
   "trouble.nvim": { "branch": "main", "commit": "6f380b8826fb819c752c8fd7daaee9ef96d4c689" },
   "ultimate-autopair.nvim": { "branch": "v0.6", "commit": "cc04970748384918e8334407d366cc998d34988d" },
