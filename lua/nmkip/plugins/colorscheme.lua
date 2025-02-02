@@ -6,6 +6,7 @@ return {
       -- vim.g.gruvbox_material_better_performance = 1
       vim.g.gruvbox_material_foreground = "mix"
       vim.g.gruvbox_material_background = "soft"
+      vim.g.gruvbox_material_float_style = "none"
     end,
   },
   {
@@ -78,4 +79,14 @@ return {
       },
     },
   },
+  {
+    "projekt0n/github-nvim-theme",
+    name = "github-theme",
+    lazy = true, -- make sure we load this during startup if it is your main colorscheme
+    priority = 1000, -- make sure to load this before all the other start plugins
+    config = function()
+      require("github-theme").setup({})
+    end,
+  },
+  { "embark-theme/vim" },
 }
