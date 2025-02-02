@@ -43,7 +43,6 @@ return {
     event = "BufReadPre",
     dependencies = {
       "folke/neodev.nvim",
-      "hrsh7th/cmp-nvim-lsp",
       "williamboman/mason-lspconfig.nvim",
       "antosha417/nvim-lsp-file-operations",
 
@@ -69,10 +68,9 @@ return {
 
       local mason_lspconfig = require("mason-lspconfig")
       local lspconfig = require("lspconfig")
-      local cmplsp = require("cmp_nvim_lsp")
 
       local default_capabilities = vim.lsp.protocol.make_client_capabilities()
-      local cmp_capabilities = cmplsp.default_capabilities(default_capabilities)
+      local cmp_capabilities = require("blink.cmp").get_lsp_capabilities()
       local file_operation_capabilities = lsp_file_operations.default_capabilities()
       local capabilities =
         vim.tbl_deep_extend("force", default_capabilities, cmp_capabilities, file_operation_capabilities, {
