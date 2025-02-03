@@ -100,6 +100,41 @@ local workspace_symbol_picker = function()
   Snacks.picker.lsp_symbols(opts)
 end
 
+
+---@diagnostic disable-next-line: unused-function
+local new_scratch = function()
+  vim.ui.input({ prompt= "Scratch name: " }, function(input)
+    if not input then
+      return
+    end
+
+    local scratch_name = vim.trim(input)
+
+    local ft = "markdown"
+    local name = scratch_name
+
+    local dot_idx = scratch_name:find("%.")
+    if dot_idx then
+      local ext = scratch_name:sub(dot_idx + 1)
+      local detected_ft = vim.filetype.match({ filename = "test." .. ext })
+      ft = detected_ft or ext
+      name = scratch_name:sub(1, dot_idx - 1)
+    end
+
+    local opts = {
+      name = name,
+      ft = ft,
+      filekey = {
+        cwd = true,
+        branch = false,
+        count = true,
+      },
+    }
+
+    Snacks.scratch.open(opts)
+  end)
+end
+
 return {
   "folke/snacks.nvim",
   keys = {
