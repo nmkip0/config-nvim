@@ -36,7 +36,7 @@ lazy.setup({
     version = false, -- always use the latest git commit
     -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
-  checker = { enabled = true }, -- automatically check for plugin updates
+  checker = { enabled = false }, -- automatically check for plugin updates
 })
 
 require("nmkip.helpers.keys").map("n", "<leader>LL", lazy.show, "Show Lazy")
