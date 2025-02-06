@@ -1,3 +1,23 @@
+-- This checks if Neovim was started with "-c DiffviewOpen" in which case we
+-- generally want to quit neovim when exiting DiffView.
+local function opened_on_boot()
+  for i = 1, #vim.v.argv do
+    if vim.v.argv[i] == "-c" and vim.v.argv[i + 1] and vim.v.argv[i + 1]:match("^DiffviewOpen") then
+      return true
+    end
+  end
+  return false
+end
+
+local function close_diffview()
+  if opened_on_boot() then
+    vim.cmd("qa")
+    return
+  end
+
+  vim.cmd.DiffviewClose()
+end
+
 return {
   {
     "lewis6991/gitsigns.nvim",
@@ -11,6 +31,7 @@ return {
         changedelete = { text = "❙" },
         untracked = { text = "❙" },
       },
+      attach_to_untracked = true,
       on_attach = function(buffer)
         local gs = require("gitsigns")
 
@@ -21,17 +42,17 @@ return {
         -- stylua: ignore start
         map("n", "]h", gs.next_hunk, "Next Hunk")
         map("n", "[h", gs.prev_hunk, "Prev Hunk")
-        map({ "n", "v" }, "<leader>ghs", ":Gitsigns stage_hunk<CR>", "Stage Hunk")
+
         map({ "n", "v" }, "<leader>ghr", ":Gitsigns reset_hunk<CR>", "Reset Hunk")
-        map("n", "<leader>ghS", gs.stage_buffer, "Stage Buffer")
-        map("n", "<leader>ghu", gs.undo_stage_hunk, "Undo Stage Hunk")
         map("n", "<leader>ghR", gs.reset_buffer, "Reset Buffer")
-        map("n", "<leader>ghp", gs.preview_hunk, "Preview Hunk")
-        map("n", "<leader>gb", function() gs.blame_line({ full = true }) end, "Blame Line")
-        map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", "GitSigns Select Hunk")
+        map("n", "<leader>ghp", gs.preview_hunk, "Diff Hunk")
+
+        map("n", "<leader>gbl", gs.blame_line, "Blame Line")
+        map("n", "<leader>gbb", gs.blame , "Toggle line blame")
       end,
     },
   },
+
   {
     "sindrets/diffview.nvim",
     keys = {
@@ -39,16 +60,18 @@ return {
       { "<leader>gf", "<cmd>DiffviewFileHistory %<cr>", desc = "File history" },
       { "<leader>gl", "<cmd>DiffviewFileHistory<cr>", desc = "Git log" },
     },
+    cmd = { "DiffviewOpen" },
     config = function()
       local actions = require("diffview.actions")
       require("diffview").setup({
         enhanced_diff_hl = true,
+
         keymaps = {
           view = {
-            ["q"] ="<cmd>DiffviewClose<cr>"
+            ["q"] = close_diffview,
           },
           file_panel = {
-            ["q"] ="<cmd>DiffviewClose<cr>",
+            ["q"] = close_diffview,
             {
               "n",
               "<Right>",
@@ -62,11 +85,14 @@ return {
               { desc = "Focus the diff entry" },
             },
           },
+          file_history_panel = {
+            ["q"] = close_diffview,
+          },
         },
 
         hooks = {
           diff_buf_win_enter = function()
-            vim.opt_local.foldenable = false
+            -- vim.opt_local.foldenable = false
           end,
         },
       })
