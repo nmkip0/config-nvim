@@ -52,7 +52,6 @@ return {
       require("blink.cmp").setup({
         fuzzy = {
           prebuilt_binaries = {
-            force_version = "v0.11.0",
           },
         },
 
